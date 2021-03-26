@@ -1,0 +1,12 @@
+.blur{
+    filter: blur(7px)
+}
+
+.image-preview{
+    height: 200px;
+    width: 200px;
+    margin-top: 20px;
+    object-fit: scale-down;
+}
+
+@import '../../../node_modules/bootstrap/scss/bootstrap.scss';

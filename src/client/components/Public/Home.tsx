@@ -6,7 +6,7 @@ const Home = (props: HomeProps) => {
 
     return (
         <>
-        <h1>home</h1>
+        <div className="text-6xl">home</div>
 
         </>
     );

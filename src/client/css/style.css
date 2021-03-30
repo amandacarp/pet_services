@@ -1,3 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 .blur{
     filter: blur(7px)
 }
@@ -8,5 +13,3 @@
     margin-top: 20px;
     object-fit: scale-down;
 }
-
-@import '../../../node_modules/bootstrap/scss/bootstrap.scss';

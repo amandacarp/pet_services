@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './components/Public/Home';
-import './scss/app';
 import 'react-calendar/dist/Calendar.css';
 import EventsDash from './components/Public/EventsDash';
 import AddEvent from './components/Private/AddEvent';
@@ -15,6 +14,8 @@ import SinglePet from './components/Private/SinglePet';
 import EditPet from './components/Private/EditPet';
 import SingleEvent from './components/Private/SingleEvent';
 import EditEvent from './components/Private/EditEvent';
+import './css/style.css';
+
 
 const App = (props: AppProps) => {
 

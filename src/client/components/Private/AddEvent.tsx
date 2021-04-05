@@ -7,7 +7,6 @@ import Select from 'react-select';
 import Swal from 'sweetalert2';
 
 
-
 const AddEvent = (props: AddEventProps) => {
 
     const [title, setTitle] = useState(null);
@@ -66,65 +65,62 @@ const AddEvent = (props: AddEventProps) => {
     }
 
 
-    return (<>
-        <section className="row mb-4">
-            <h1 className='ml-5 mt-3 text-muted'>Add Event</h1>
-        </section>
-        <section className="row d-flex justify-content-center">
-            <section className="col-6">
-                <form>
-                    <section className="form-group">
-                        <label>Title</label>
+    return (
+    
+        <>
+        
+            <h1 className="flex justify-center mt-5 text-2xl font-bold text-indigo-300 wrap">Add Appointment</h1>
+                <div className="md:flex md:flex-wrap md:justify-center">
+                <form className="mx-5 my-5">
+                    <div className="mt-5">
+                        <label className="text-lg text-indigo-400">Title</label>
                         <input
-                            type="text"
-                            className="form-control"
+                            className="flex flex-col w-full text-indigo-500 rounded shadow"
                             onChange={e => setTitle(e.target.value)}
                         />
-                    </section>
-                    <section className="form-group">
-                        <label>Service</label>
-                        <div>
+                        </div>
 
-
-
-                            <Select options={services?.map((service: { id: number; name: string; }) => {
+                        <div className="mt-5">
+                        <label className="text-lg text-indigo-400">Service</label>
+                        <div className="w-full">
+                            <Select className="text-indigo-500" options={services?.map((service: { id: number; name: string; }) => {
                                 return { value: service.id, label: service.name }
                             })} onChange={selectedService => setSelectedService(selectedService.value)}></Select>
 
                         </div>
-                    </section>
-                    <section className="form-group">
-                        <label>Pet</label>
-                        <div>
+                        </div>
+                        
+                        <div className="mt-5">
+                        <label className="text-lg text-indigo-400">Pet</label>
+                        <div className="w-full">
 
-                            <Select options={pets?.map((pet: { id: number; pet_name: string; }) => {
+                            <Select className="text-indigo-500" options={pets?.map((pet: { id: number; pet_name: string; }) => {
                                 return { value: pet.id, label: pet.pet_name }
                             })} onChange={selectedPet => setSelectedPets(selectedPet.value)}></Select>
 
                         </div>
-                    </section>
-                    <section className="form-group">
-                        <label>Description</label>
+                        </div>
+
+                        <div className="mt-5">
+                        <label className="text-lg text-indigo-400">Description</label>
                         <textarea
-                            className="form-control"
+                            className="flex flex-col w-full text-indigo-500 border-none rounded shadow"
                             rows={3}
                             onChange={e => setDescription(e.target.value)}
                         />
-                    </section>
-            
-                    <label>Date</label>
-                    <div className="row d-flex justify-content-center mb-2">
-                        
-                        <div className="form-check form-check-inline" >
-                            <input type="checkbox" value="option1" name="inlineCheckOptions" className="form-check-input" onClick={handleRange}/>
-                            <label htmlFor="inlineCheck1" className="form-check-label">Date Range</label>
                         </div>
-                    </div>
+            
+                    <div className="mt-5">
+                    <label className="text-lg text-indigo-400">Date</label>
+                        
+                       <div className="mt-3">
+                            <input type="checkbox" value="option1" className="text-indigo-500 rounded" name="inlineCheckOptions" onClick={handleRange}/>
+                            <label className="text-sm text-indigo-600" htmlFor="inlineCheck1"> Date Range</label>
+                        </div>
                     {isRange && (
-                        <div className="row">
-                            <div className="col-md-6">
-                                <section className="form-group mx-2">
-                                    <label>Start Date</label>
+                        <div className="flex flex-wrap mt-3 overflow-hidden lg:-mx-3">
+                            <div className="w-full overflow-hidden lg:my-3 lg:px-3 lg:w-1/2">
+                                    <label className="text-lg text-indigo-400">Start Date</label>
                                     {start_date === null ? <Calendar
                                         //@ts-ignore
                                         onChange={startChange}
@@ -132,15 +128,11 @@ const AddEvent = (props: AddEventProps) => {
                                         // onClickDay={(value) => console.log(value)}
                                         calendarType={"US"}
                                         // tileDisabled= {}
-                                        className="shadow border border-dark rounded"
+                                        className="border rounded shadow border-dark"
                                     /> : <Calendar className="blur"/>}
-                                 
-
-                                </section>
-                            </div>
-                            <div className="col-md-6">
-                                <section className="form-group">
-                                    <label>End Date</label>
+                                 </div>
+                                 <div className="w-full mt-3 overflow-hidden lg:my-3 lg:px-3 lg:w-1/2">
+                                    <label className="text-lg text-indigo-400">End Date</label>
                                     <Calendar
                                         //@ts-ignore
                                         onChange={endChange}
@@ -148,17 +140,14 @@ const AddEvent = (props: AddEventProps) => {
                                         // onClickDay={(value) => console.log(value)}
                                         calendarType={"US"}
                                         // tileDisabled= {({date, view }) => (view === 'month') && date.getDay() === 0}
-                                        className="shadow border border-dark rounded"
+                                        className="border rounded shadow border-dark"
                                     />
-
-                                </section>
-                            </div>
+                                    </div>  
                         </div>
                     )}
 
                     {!isRange && (
-                        <div className="row d-flex justify-content-center">
-                        <section className="form-group mx-2">
+                        <div className="mt-3">
                         <Calendar
                             //@ts-ignore
                             onChange={startChange}
@@ -166,28 +155,28 @@ const AddEvent = (props: AddEventProps) => {
                             // onClickDay={(value) => console.log(value)}
                             calendarType={"US"}
                             // tileDisabled= {({date, view }) => (view === 'month') && date.getDay() === 0}
-                            className="shadow border border-dark rounded"
+                            className="border rounded shadow border-dark"
                         />
-                    </section>
                     </div>
                     )}
+                    </div>
 
-
-                    <section className="form-group">
-                        <label>Time</label>
+                        <div className="mt-5">
+                        <label className="text-lg text-indigo-400">Time</label>
                         <input
-                            className="form-control"
+                            type="time"
                             onChange={e => setTime(e.target.value)}
-
+                            className="w-full text-indigo-500 border-none rounded shadow"
                         />
-                    </section>
-                    <div className="d-flex justify-content-end">
-                        <button className="btn btn-primary" onClick={postEvent}>Add Event</button>
+                        </div>
+                    <div className="inline-block px-4 py-2 mt-5 leading-none text-indigo-600 bg-gray-300 rounded shadow md:text-lg hover:text-indigo-700 hover:bg-white">
+                        <button onClick={postEvent}>Add Appointment</button>
                     </div>
                 </form>
-            </section>
-        </section>
-    </>);
+                </div>
+
+    </>
+    );
 }
 
 interface AddEventProps { }

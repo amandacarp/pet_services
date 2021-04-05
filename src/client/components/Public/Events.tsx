@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import apiService from '../../utils/api-service';
 import { Event } from '../../../common/types';
 import moment from 'moment';
+import { Link } from 'react-router-dom';
 
 
 const Events = (props: EventsProps) => {
@@ -17,46 +18,43 @@ const Events = (props: EventsProps) => {
 
     return (
         <>
-
-
-            <table>
-                <tbody>
-                    <tr className="border">
-                        <th className="border bg-dark text-light text-center">Owner Name</th>
-                        <th className="border bg-dark text-light text-center">Pet Name</th>
-                        <th className="border bg-dark text-light text-center">Title</th>
-                        <th className="border bg-dark text-light text-center">Service</th>
-                        <th className="border bg-dark text-light text-center">Start Date</th>
-                        <th className="border bg-dark text-light text-center">End Date</th>
-                        <th className="border bg-dark text-light text-center">Time(s)</th>
-                        <th className="border bg-dark text-light text-center">Comments</th>
+        <section className="flex justify-center mt-6 ml-6 text-2xl font-bold text-indigo-300">All Appointments</section>
+        
+        <div className="flex flex-wrap justify-center mt-6 overflow-hidden">
+        <table className="w-1/2 text-xs text-gray-800 bg-gray-300 border border-separate border-white table-auto md:text-lg">
+                <thead>
+                    <tr>
+                        <th className="text-center border border-indigo-600">Owner Name</th>
+                        <th className="text-center border border-indigo-600">Pet Name</th>
+                        <th className="text-center border border-indigo-600">Title</th>
+                        <th className="text-center border border-indigo-600">Service</th>
+                        <th className="text-center border border-indigo-600">Date(s)</th>
+                        <th className="text-center border border-indigo-600">Time(s)</th>
                     </tr>
+                    </thead>
+                    <tbody>
                     {events?.map((event: Event) => {
                         return (
-                            <tr className='' key={event?.id}>
-                                <td className='p-2 text-center'>{event?.owner_name}</td>
-                                <td className='p-2 text-center'>{event?.pet_name}</td>
-                                <td className='p-2 text-center'>{event?.title}</td>
-                                <td className='p-2 text-center'>{event?.name}</td>
-                                <td className='p-2 text-center'>{moment(event?.start_date).format('MMMM Do YYYY')}</td>
-                                <td className='p-2 text-center'> {event?.end_date === null ? '---' : moment(event?.end_date).format('MMMM Do YYYY')}</td>
-                                <td className='p-2 text-center'>{event?.time}</td>
-                                <td> <p className="text-center"><svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-message-circle" width="20" height="20" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#7e858d" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                    <path d="M3 20l1.3 -3.9a9 8 0 1 1 3.4 2.9l-4.7 1" />
-                                    <line x1="12" y1="12" x2="12" y2="12.01" />
-                                    <line x1="8" y1="12" x2="8" y2="12.01" />
-                                    <line x1="16" y1="12" x2="16" y2="12.01" />
-                                </svg>{event?.num_of_comments}</p></td>
-                               
+                            <tr key={event?.id}>
+                                <td className="text-center border border-indigo-600">{event?.owner_name}</td>
+                                <td className="text-center border border-indigo-600">{event?.pet_name}</td>
+                                <td className="text-center border border-indigo-600">{event?.title}</td>
+                                <td className="text-center border border-indigo-600">{event?.name}</td>
+                                <td className="text-center border border-indigo-600">{moment(event?.start_date).add(10, 'days').calendar()} {event?.end_date === null ? '' : 'to ' + moment(event?.end_date).add(10, 'days').calendar()}</td>
+                                <td className="text-center border border-indigo-600">{event?.time}</td>
+                                                         
                             </tr>
                         )
 
                     })}
-                </tbody>
+                    </tbody>
             </table>
-
-        </>
+            
+            </div>
+            <div className="flex flex-wrap justify-center mt-4">
+            <Link className="inline-block px-4 py-2 mt-6 leading-none text-indigo-600 bg-gray-300 rounded shadow md:text-lg hover:text-indigo-700 hover:bg-white" to="/add/event" >Add Appointment</Link>
+            </div>
+            </>
     );
 }
 

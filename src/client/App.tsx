@@ -2,7 +2,6 @@ import * as React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './components/Public/Home';
 import 'react-calendar/dist/Calendar.css';
-import EventsDash from './components/Public/EventsDash';
 import AddEvent from './components/Private/AddEvent';
 import Register from './components/Public/Register';
 import Login from './components/Public/Login';
@@ -15,6 +14,8 @@ import EditPet from './components/Private/EditPet';
 import SingleEvent from './components/Private/SingleEvent';
 import EditEvent from './components/Private/EditEvent';
 import './css/style.css';
+import 'react-calendar/dist/Calendar.css';
+import Events from './components/Public/Events';
 
 
 const App = (props: AppProps) => {
@@ -30,7 +31,7 @@ const App = (props: AppProps) => {
 					</Route>
 
 					<Route exact path='/events'>
-						<EventsDash />
+						<Events />
 					</Route>
 
 					<PrivateRoute exact path='/add/event'>

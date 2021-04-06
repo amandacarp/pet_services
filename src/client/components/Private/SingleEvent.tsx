@@ -9,54 +9,51 @@ import moment from 'moment';
 
 const SingleEvent = (props: SingleEventProps) => {
 
-    const [singleEvent, setSingleEvent] = useState<Event>(null);
+    const [event, setSingleEvent] = useState<Event>(null);
     const { id } = useParams<{ id: string }>();
 
     useEffect(() => {
         apiService(`/api/events/${id}`)
-            .then(singleEvent => setSingleEvent(singleEvent[0]))
+            .then(event => setSingleEvent(event[0]))
     }, [id])
 
 
     return (
         <>
 
-            <section className="row p-3 justify-content-center mt-4">
-                <section className="col-md-6">
-                    <section className="card rounded border border-info bg-white mx-2 shadow d-flex justify-content-center">
-                        <h4 className="col-12 text-center my-4 d-flex justify-content-around">{singleEvent?.title}</h4>
+            <div className="flex flex-wrap justify-center px-2 mx-auto mt-5 overflow-hidden">
+                <div className="px-5 py-5 m-2 text-center text-gray-800 bg-gray-300 rounded">
+                    <table className="w-1/2 text-xs table-auto md:text-lg lg:w-full">
+                        <thead>
+                            <tr>
+                                <th className="text-center md:text-xl">Pet</th>
+                                <th className="text-center md:text-xl">Title</th>
+                                <th className="text-center md:text-xl">Service</th>
+                                <th className="text-center md:text-xl">Description</th>
+                                <th className="text-center md:text-xl">Date(s)</th>
+                                <th className="text-center md:text-xl">Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
-                        <table>
-                            <tbody>
-                                <tr className="border">
-                                    <th className="border bg-dark text-light text-center">Pet Name</th>
-                                    <th className="border bg-dark text-light text-center">Title</th>
-                                    <th className="border bg-dark text-light text-center">Description</th>
-                                    <th className="border bg-dark text-light text-center">Service</th>
-                                    <th className="border bg-dark text-light text-center">Start Date</th>
-                                    <th className="border bg-dark text-light text-center">End Date</th>
-                                    <th className="border bg-dark text-light text-center">Time(s)</th>
-                                    <th className="border bg-dark text-light text-center">Edit Event</th>
-                                </tr>
+                            <tr key={event?.id}>
+                                <td className="text-center border border-indigo-600 md:px-2 md:py-2">{event?.pet_name}</td>
+                                <td className="text-center border border-indigo-600 md:px-2 md:py-2">{event?.title}</td>
+                                <td className="text-center border border-indigo-600 md:px-2 md:py-2">{event?.name}</td>
+                                <td className="text-center border border-indigo-600 md:px-2 md:py-2">{event?.description}</td>
+                                <td className="text-center border border-indigo-600 md:px-2 md:py-2">
+                                    {moment(event?.start_date).add(10, 'days').calendar()} {event?.end_date === null ? '' : 'to ' + moment(event?.end_date).add(10, 'days').calendar()}
+                                </td>
+                                <td className="text-center border border-indigo-600 md:px-2 md:py-2">{event?.time}</td>
+                                <td className="text-center md:px-2 md:py-2"><button className="inline-block px-4 py-2 mt-4 text-sm leading-none text-indigo-400 border border-indigo-400 rounded hover:border-transparent hover:text-indigo-500 hover:bg-white md:mt-0"><Link to={`/event/${event?.id}/edit`}>Edit</Link></button></td>
 
-                                <tr key={singleEvent?.id}>
-                                    <td className='p-2 text-center'>{singleEvent?.pet_name}</td>
-                                    <td className='p-2 text-center'>{singleEvent?.title}</td>
-                                    <td className='p-2 text-center'>{singleEvent?.description}</td>
-                                    <td className='p-2 text-center'>{singleEvent?.name}</td>
-                                    <td className='p-2 text-center'>{moment(singleEvent?.start_date).format('MMMM Do YYYY')}</td>
-                                    <td className='p-2 text-center'> {singleEvent?.end_date === null ? '---' : moment(singleEvent?.end_date).format('MMMM Do YYYY')}</td>
-                                    <td className='p-2 text-center'>{singleEvent?.time}</td>
-                                    <td className='p-2 text-center'><Link to={`/event/${singleEvent?.id}/edit`}>Edit Event</Link></td>
-                                </tr>
+                            </tr>
 
-                            </tbody>
-                        </table>
-                    </section>
-                </section>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-            </section>
-    
         </>
     );
 }

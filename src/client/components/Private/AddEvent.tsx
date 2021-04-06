@@ -169,9 +169,8 @@ const AddEvent = (props: AddEventProps) => {
                             className="w-full text-indigo-500 border-none rounded shadow"
                         />
                         </div>
-                    <div className="inline-block px-4 py-2 mt-5 leading-none text-indigo-600 bg-gray-300 rounded shadow md:text-lg hover:text-indigo-700 hover:bg-white">
-                        <button onClick={postEvent}>Add Appointment</button>
-                    </div>
+                        <div className="mt-5 text-center md:px-2 md:py-2"><button onClick={postEvent} className="inline-block px-4 py-2 mt-4 text-sm leading-none text-indigo-400 border border-indigo-400 rounded hover:border-transparent hover:text-indigo-500 hover:bg-white md:mt-0">Schedule</button></div>
+
                 </form>
                 </div>
 

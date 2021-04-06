@@ -20,38 +20,33 @@ const SinglePet = (props: SinglePetProps) => {
     return (
         <>
 
-            <section className="row p-3 justify-content-center mt-4">
-                <section className="col-md-6">
-                    <section className="card rounded border border-info bg-white mx-2 shadow d-flex justify-content-center">
-                        <h4 className="col-12 text-center my-4 d-flex justify-content-around">{pet?.pet_name}</h4>
+            <div className="flex flex-wrap justify-center px-2 mx-auto mt-5 overflow-hidden">
+                <div className="px-5 py-5 m-2 text-center text-gray-800 bg-gray-300 rounded">
+                    <table className="w-1/2 text-xs table-auto md:text-lg lg:w-full">
+                        <thead>
+                            <tr>
+                                <th className="text-center md:text-xl">Pet</th>
+                                <th className="text-center md:text-xl">Breed</th>
+                                <th className="text-center md:text-xl">Age</th>
+                                <th className="text-center md:text-xl">Photo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
-                        <table>
-                            <tbody>
-                                <tr className="border">
-                                    <th className="border bg-dark text-light text-center">Pet Name</th>
-                                    <th className="border bg-dark text-light text-center">Pet Age</th>
-                                    <th className="border bg-dark text-light text-center">Pet Breed</th>
-                                    <th className="border bg-dark text-light text-center">Pet Photo</th>
-                                    <th className="border bg-dark text-light text-center">Edit Pet</th>
-                                </tr>
+                            <tr key={pet?.id}>
+                                <td className="text-center border border-indigo-600 md:px-2 md:py-2">{pet?.pet_name}</td>
+                                <td className="text-center border border-indigo-600 md:px-2 md:py-2">{pet?.pet_breed}</td>
+                                <td className="text-center border border-indigo-600 md:px-2 md:py-2">{pet?.pet_age}</td>
+                                <td className="text-center border border-indigo-600 md:px-2 md:py-2"><img src={pet?.pet_photo} style={{ maxHeight: '70px', maxWidth: '70px' }} /></td>
+                                <td className="text-center md:px-2 md:py-2"><button className="inline-block px-4 py-2 mt-4 text-sm leading-none text-indigo-400 border border-indigo-400 rounded hover:border-transparent hover:text-indigo-500 hover:bg-white md:mt-0"><Link to={`/pet/${pet?.id}/edit`}>Edit</Link></button></td>
 
-                                <tr key={pet?.id}>
-                                    <td className='p-2 text-center'>{pet?.pet_name}</td>
-                                    <td className='p-2 text-center'>{pet?.pet_age} year(s)</td>
-                                    <td className='p-2 text-center'>{pet?.pet_breed}</td>
-                                    <td className='p-2 text-center'> 
-                                    <img style={{maxHeight: '50px', maxWidth: '50px'}} src={pet?.pet_photo}/>
-                                    </td>
-                                    <td className='p-2 text-center'><Link to={`/pet/${pet?.id}/edit`}>Edit Pet</Link></td>
-                                </tr>
+                            </tr>
 
-                            </tbody>
-                        </table>
-                    </section>
-                </section>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-            </section>
-    
         </>
     );
 }

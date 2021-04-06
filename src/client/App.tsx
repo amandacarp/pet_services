@@ -16,6 +16,7 @@ import EditEvent from './components/Private/EditEvent';
 import './css/style.css';
 import 'react-calendar/dist/Calendar.css';
 import Events from './components/Public/Events';
+import Services from './components/Public/Services';
 
 
 const App = (props: AppProps) => {
@@ -44,6 +45,10 @@ const App = (props: AppProps) => {
 
 					<Route exact path='/login'>
 						<Login />
+					</Route>
+
+					<Route exact path='/services'>
+						<Services />
 					</Route>
 
 					<PrivateRoute exact path='/profile'>

@@ -1,5 +1,6 @@
 const path = require('path');
 var nodeExternals = require('webpack-node-externals');
+const cleanTerminalWindow = require('clean-terminal-webpack-plugin');
 
 const serverConfig = {
     mode: process.env.NODE_ENV || 'development',
@@ -27,7 +28,9 @@ const serverConfig = {
     node: {
         __dirname: false
     },
-    externals: [nodeExternals()]
+    externals: [nodeExternals()],
+    plugins: [new cleanTerminalWindow()]
+
 };
 
 const clientConfig = {
@@ -60,7 +63,8 @@ const clientConfig = {
     output: {
         filename: 'app.js',
         path: path.resolve(__dirname, 'public/js')
-    }
+    },
+    plugins: [new cleanTerminalWindow()]
 };
 
 module.exports = [serverConfig, clientConfig];

@@ -22,84 +22,79 @@ const Profile = (props: ProfileProps) => {
 
     return (
         <>
-            <section className="row mb-4">
-                <h1 className='ml-5 mt-5 text-muted'>Welcome, {info?.owner_name}</h1>
+
+            <section >
+                <h1 >Welcome, {info?.owner_name}</h1>
             </section>
-            <section className="row mt-4">
-                <section className="col-md-6">
-                    <section className="card rounded border border-info bg-white mx-2 shadow d-flex justify-content-center">
-                        <h4 className="col-12 text-center my-4 d-flex justify-content-around">Your Events<Link to="/add/event" className="btn btn-primary">Add Event</Link></h4>
-                        <table>
-                            <tbody>
-                                <tr className="border">
-                                    <th className="border bg-dark text-light text-center">Pet Name</th>
-                                    <th className="border bg-dark text-light text-center">Title</th>
-                                    <th className="border bg-dark text-light text-center">Description</th>
-                                    <th className="border bg-dark text-light text-center">Service</th>
-                                    <th className="border bg-dark text-light text-center">Start Date</th>
-                                    <th className="border bg-dark text-light text-center">End Date</th>
-                                    <th className="border bg-dark text-light text-center">Time(s)</th>
-                                    <th className="border bg-dark text-light text-center">View Event</th>
-                                </tr>
-                                {events?.map(event => (
-                                    <tr className='' key={event?.id}>
-                                        <td className='p-2 text-center'>{event?.pet_name}</td>
-                                        <td className='p-2 text-center'>{event?.title}</td>
-                                        <td className='p-2 text-center'>{event?.description}</td>
-                                        <td className='p-2 text-center'>{event?.name}</td>
-                                        <td className='p-2 text-center'>{moment(event?.start_date).format('MMMM Do YYYY')}</td>
-                                        <td className='p-2 text-center'> {event?.end_date === null ? '---' : moment(event?.end_date).format('MMMM Do YYYY')}</td>
-                                        <td className='p-2 text-center'>{event?.time}</td>
-                                        <td className='p-2 text-center'><Link to={`/event/${event?.id}`}>View Event</Link></td>
-                                        
-                                    </tr>
-
-                                ))}
-
-
-                            </tbody>
-                        </table>
-
-                    </section>
-                </section>
-
-
-
-
-                <section className="col-md-6">
-                    <section className="card rounded border border-info bg-white mx-2 shadow d-flex justify-content-center">
-                        <h4 className="col-12 text-center my-4 d-flex justify-content-around">Your Pets<Link to="/add/pet" className="btn btn-primary">Add Pet</Link></h4>
-                        <table>
-                            <tbody>
-                                <tr className="border">
-                                    <th className="border bg-dark text-light text-center">Pet Name</th>
-                                    <th className="border bg-dark text-light text-center">Pet Age</th>
-                                    <th className="border bg-dark text-light text-center">Pet Breed</th>
-                                    <th className="border bg-dark text-light text-center">Pet Photo</th>
-                                    <th className="border bg-dark text-light text-center">View Pet</th>
-                                </tr>
-                                {pets?.map((pet: Pet) => (
-                                    <tr key={pet?.id}>
-                                        <td className='p-2 text-center'>{pet?.pet_name}</td>
-                                        <td className='p-2 text-center'>{pet?.pet_age} years</td>
-                                        <td className='p-2 text-center'>{pet?.pet_breed}</td>
-                                        <td className='p-2 text-center'>
-                                        <img style={{maxHeight: '50px', maxWidth: '50px'}} src={pet?.pet_photo}/>
+            
+            <div className="flex flex-wrap justify-center px-2 mx-auto mt-5 overflow-hidden">
+                <div className="w-full overflow-hidden lg:my-8 lg:px-8 lg:w-1/2">
+                <div className="px-5 py-5 mt-5 text-gray-800 bg-gray-300 rounded">
+                <table className="text-xs md:text-lg">
+                        <thead>
+                            <tr>
+                                <th className="text-center md:text-xl">Pet</th>
+                                <th className="text-center md:text-xl">Title</th>
+                                <th className="text-center md:text-xl">Service</th>
+                                <th className="text-center md:text-xl">Date(s)</th>
+                                <th className="text-center md:text-xl">Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {events?.map((event) => {
+                                return (
+                                    <tr key={event?.id}>
+                                        <td className="text-center border border-indigo-600 md:px-2 md:py-2"><Link to={`/event/${event?.id}`}>{event?.pet_name}</Link></td>
+                                        <td className="text-center border border-indigo-600 md:px-2 md:py-2"><Link to={`/event/${event?.id}`}>{event?.title}</Link></td>
+                                        <td className="text-center border border-indigo-600 md:px-2 md:py-2"><Link to={`/event/${event?.id}`}>{event?.name}</Link></td>
+                                        <td className="text-center border border-indigo-600 md:px-2 md:py-2">
+                                            <Link to={`/event/${event?.id}`}>{moment(event?.start_date).add(10, 'days').calendar()} {event?.end_date === null ? '' : 'to ' + moment(event?.end_date).add(10, 'days').calendar()}</Link>
                                         </td>
-                                        <td className='p-2 text-center'><Link to={`/pet/${pet?.id}`}>View Pet</Link></td>
-                                        
+                                        <td className="text-center border border-indigo-600 md:px-2 md:py-2"><Link to={`/event/${event?.id}`}>{event?.time}</Link></td>
+
                                     </tr>
+                                )
 
-                                ))}
+                            })}
+                        </tbody>
+                    </table>
+                    <div className="mt-5 text-center md:px-2 md:py-2"><button className="inline-block px-4 py-2 mt-4 text-sm leading-none text-indigo-400 border border-indigo-400 rounded hover:border-transparent hover:text-indigo-500 hover:bg-white md:mt-0"><Link to={`/add/event`}>Schedule</Link></button></div>
 
+                </div>
+                </div>
 
-                            </tbody>
-                        </table>
+                <div className="w-full overflow-hidden lg:my-8 lg:px-8 lg:w-1/2">
+                <div className="px-5 py-5 mt-5 text-gray-800 bg-gray-300 rounded">
+                <table className="w-full text-xs table-auto md:text-lg">
+                        <thead>
+                            <tr>
+                                <th className="text-center md:text-xl">Pet</th>
+                                <th className="text-center md:text-xl">Breed</th>
+                                <th className="text-center md:text-xl">Age</th>
+                                <th className="text-center md:text-xl">Photo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {pets?.map((pet: Pet) => {
+                                return (
+                                    <tr key={pet?.id}>
+                                        <td className="text-center border border-indigo-600 md:px-2 md:py-2"><Link to={`/pet/${pet?.id}`}>{pet?.pet_name}</Link></td>
+                                        <td className="text-center border border-indigo-600 md:px-2 md:py-2"><Link to={`/pet/${pet?.id}`}>{pet?.pet_breed}</Link></td>
+                                        <td className="text-center border border-indigo-600 md:px-2 md:py-2"><Link to={`/pet/${pet?.id}`}>{pet?.pet_age}</Link></td>
+                                        <td className="flex justify-center border border-indigo-600 md:px-2 md:py-2"><Link to={`/pet/${pet?.id}`}><img src={pet?.pet_photo} style={{maxHeight: '70px', maxWidth: '70px'}}/></Link></td>
+                                    </tr>
+                                )
 
-                    </section>
-                </section>
-                <Link onClick={() => logout()} id="buttonSingle" className="btn shadow m-4" to='/login'>Logout</Link>
-            </section>
+                            })}
+                        </tbody>
+                    </table>
+                    <div className="mt-5 text-center md:px-2 md:py-2"><button className="inline-block px-4 py-2 mt-4 text-sm leading-none text-indigo-400 border border-indigo-400 rounded hover:border-transparent hover:text-indigo-500 hover:bg-white md:mt-0"><Link to={`/add/pet`}>Add Pet</Link></button></div>
+
+                </div>
+                </div>
+                </div>
+
+    
         </>
     );
 }

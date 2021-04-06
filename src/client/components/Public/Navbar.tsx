@@ -16,11 +16,14 @@ const Navbar = () => {
 
                     <Link className="block mt-4 mr-4 text-indigo-200 sm:inline-block sm:mt-0 hover:text-white" to='/'>Home</Link>
 
-                    <Link className="block mt-4 mr-4 text-indigo-200 sm:inline-block sm:mt-0 hover:text-white" to='/events'> View Appointments </Link>
+                    <Link className="block mt-4 mr-4 text-indigo-200 sm:inline-block sm:mt-0 hover:text-white" to='/events'> Appointments </Link>
 
-                    <Link className="block mt-4 mr-4 text-indigo-200 sm:inline-block sm:mt-0 hover:text-white" to='/add/event'>Add Appointment </Link>
+                    <Link className="block mt-4 mr-4 text-indigo-200 sm:inline-block sm:mt-0 hover:text-white" to='/services'> Services </Link>
+
+                    <Link className="block mt-4 mr-4 text-indigo-200 sm:inline-block sm:mt-0 hover:text-white" to='/contact'> Contact Me </Link>
 
                     <Link className="block mt-4 mr-4 text-indigo-200 sm:inline-block sm:mt-0 hover:text-white" to='/profile'> Profile </Link>
+                
 
                 </div>
             </div>

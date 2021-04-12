@@ -20,10 +20,13 @@ const SingleEvent = (props: SingleEventProps) => {
 
     return (
         <>
+        <h1 className="flex justify-center mt-5 text-2xl font-bold text-indigo-300 border border-indigo-300">Your Appointment</h1>
 
             <div className="flex flex-wrap justify-center px-2 mx-auto mt-5 overflow-hidden">
-                <div className="px-5 py-5 m-2 text-center text-gray-800 bg-gray-300 rounded">
-                    <table className="w-1/2 text-xs table-auto md:text-lg lg:w-full">
+                <div className="px-5 py-5 m-2 text-center text-gray-800 bg-gray-300 border border-indigo-300 rounded shadow">
+                <h1 className="text-2xl font-bold text-indigo-300 border border-t-0 border-l-0 border-r-0 border-indigo-300">{event?.title}</h1>
+
+                    <table className="w-1/2 mt-3 text-xs table-auto md:text-lg lg:w-full">
                         <thead>
                             <tr>
                                 <th className="text-center md:text-xl">Pet</th>

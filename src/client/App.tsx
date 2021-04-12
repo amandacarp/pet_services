@@ -17,6 +17,7 @@ import './css/style.css';
 import 'react-calendar/dist/Calendar.css';
 import Events from './components/Public/Events';
 import Services from './components/Public/Services';
+import Contact from './components/Public/Contact';
 
 
 const App = (props: AppProps) => {
@@ -49,6 +50,10 @@ const App = (props: AppProps) => {
 
 					<Route exact path='/services'>
 						<Services />
+					</Route>
+
+					<Route exact path='/contact'>
+						<Contact />
 					</Route>
 
 					<PrivateRoute exact path='/profile'>

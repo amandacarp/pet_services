@@ -51,8 +51,9 @@ router.delete('/:id', passport.authenticate('jwt'), async (req: any, res) => {
     const id = Number(req.params.id)
     const userid = req.user.userid
     try {
-        const result = await db.Pets.destroy(id, userid)
-        res.json(result);
+        await db.Events.destroy(id, userid)
+        .then(() => {db.Pets.destroy(id, userid)})
+        res.status(200).send(`Pet ${id} deleted`);
     } catch (error) {
         console.log(error);
         res.status(500).json({ msg: 'my code sucks', error: error.message })

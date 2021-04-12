@@ -16,5 +16,10 @@ export default {
     aws: {
         accessKey: process.env.AWS_ACCESS_ID,
         secretKey: process.env.AWS_SECRET_KEY
+    },
+    keys: {
+        mailgun: process.env.MAILGUN_SK,
+        mailgunDomain: process.env.MAILGUN_DOMAIN
     }
+    
 }

@@ -16,55 +16,59 @@ const Login = (props: LoginProps) => {
 
     const handleLogin = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        if(!values.email ||  !values.password) {
+        if (!values.email || !values.password) {
             Swal.fire({
                 title: `Error`,
                 icon: 'error',
                 text: 'Please fill out all the required fields',
             })
         } else {
-        const token = await apiService('/auth/login', 'POST', values)
-        if (token) {
-            setStorage(token)
-            history.push('/profile')
-        } else {
-            Swal.fire({
-                title: 'Invalid!',
-                text: `Incorrect Email or Password. Please try again!`,
-                icon: 'error',
-            })
-        } 
-       
-    }
+            const token = await apiService('/auth/login', 'POST', values)
+            if (token) {
+                setStorage(token)
+                history.push('/profile')
+            } else {
+                Swal.fire({
+                    title: 'Invalid!',
+                    text: `Incorrect Email or Password. Please try again!`,
+                    icon: 'error',
+                })
+            }
+
+        }
     };
 
     return (
         <>
+            <h1 className="flex justify-center text-2xl font-bold text-indigo-300 border border-indigo-300 mt-14">Login</h1>
+            <div className="flex flex-wrap justify-center mt-10 overflow-hidden">
+                <form className="w-11/12 px-5 py-5 mx-5 my-5 overflow-hidden bg-gray-300 border border-indigo-300 rounded shadow lg:w-1/4">
 
-            <section className="row mb-4">
-                <h1 className='ml-5 mt-5 text-muted'>Login</h1>
-            </section>
-        
-        <div className="container">
-                <div className="row justify-content-center m-4">
-                    <div className="col-md-4">
-                        <div className="form-group mt-2">
-                            <label id="label">Email Address</label>
-                            <input type="text" className="form-control" name="email" value={values.email || ''} onChange={handleChanges} required/>
-                        
-
-                       
-                            <label id="label">Password</label>
-                            <input type="password" className="form-control" name="password" value={values.password || ''} onChange={handleChanges} required/>
-                       
-                        <div className="d-flex justify-content-end">
-                            <button id="button" type="button" className="btn shadow mt-2 mx-4" onClick={handleLogin}> Login</button>
-                        </div>
+                    <div className="mt-5">
+                        <label className="text-lg text-indigo-400">Email</label>
+                        <input
+                            name="email"
+                            value={values.email}
+                            className="flex flex-col w-full text-indigo-500 rounded shadow"
+                            onChange={handleChanges}
+                        />
                     </div>
-                </div>
-                </div>
-            
-                </div>
+
+                    <div className="mt-5">
+                        <label className="text-lg text-indigo-400">Password</label>
+                        <input
+                            name="password"
+                            value={values.password}
+                            className="flex flex-col w-full text-indigo-500 rounded shadow"
+                            onChange={handleChanges}
+                        />
+                    </div>
+
+
+                    <div className="mt-5 text-center md:px-2 md:py-2"><button onClick={handleLogin} className="inline-block px-4 py-2 mt-4 text-sm leading-none text-indigo-400 border border-indigo-400 rounded hover:border-transparent hover:text-indigo-500 hover:bg-white md:mt-0">Login</button></div>
+
+                </form>
+            </div>
         </>
     )
 

@@ -41,8 +41,9 @@ const Register = (props: RegisterProps) => {
                         <label className="text-lg text-indigo-400">Name</label>
                         <input
                             name="owner_name"
+                            type="text"
                             value={values.owner_name}
-                            className="flex flex-col w-full text-indigo-500 rounded shadow"
+                            className="flex flex-col w-full text-indigo-500 border-none rounded shadow"
                             onChange={handleChanges}
                         />
                     </div>
@@ -62,8 +63,9 @@ const Register = (props: RegisterProps) => {
                         <label className="text-lg text-indigo-400">Email</label>
                         <input
                             name="email"
+                            type="email"
                             value={values.email}
-                            className="flex flex-col w-full text-indigo-500 rounded shadow"
+                            className="flex flex-col w-full text-indigo-500 border-none rounded shadow"
                             onChange={handleChanges}
                         />
                     </div>
@@ -72,8 +74,9 @@ const Register = (props: RegisterProps) => {
                         <label className="text-lg text-indigo-400">Password</label>
                         <input
                             name="password"
+                            type="password"
                             value={values.password}
-                            className="flex flex-col w-full text-indigo-500 rounded shadow"
+                            className="flex flex-col w-full text-indigo-500 border-none rounded shadow"
                             onChange={handleChanges}
                         />
                     </div>

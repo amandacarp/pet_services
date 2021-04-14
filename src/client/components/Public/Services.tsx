@@ -8,9 +8,9 @@ return(
             <h1 className="flex justify-center text-2xl font-bold text-indigo-300 border border-indigo-300 mt-14">Services</h1>
 
             <div className="flex flex-wrap overflow-hidden">
-                <div className="flex items-center w-full mt-20 overflow-hidden bg-gray-300 h-72">
+                <div className="flex items-center w-full mt-20 overflow-hidden bg-gray-300 md:h-72 h-80">
                             <div className="mx-5 lg:flex-shrink-0">
-                                <img className="rounded-lg lg:w-64" src="/images/dogandcat.jpeg" alt="dogandcat" />
+                                <img className="rounded-lg w-80 lg:w-64" src="/images/dogandcat.jpeg" alt="dogandcat" />
                             </div>
                             <div className="mt-4 mb-4 lg:mt-0 lg:ml-6">
                                 <Link to='/events' className="text-lg font-bold tracking-wide text-indigo-600 uppercase">
@@ -27,7 +27,7 @@ return(
             </div>
 
             <div className="flex flex-wrap overflow-hidden">
-                <div className="flex items-center w-full mt-20 overflow-hidden bg-indigo-200 h-72">
+                <div className="flex items-center justify-end w-full mt-20 overflow-hidden bg-indigo-200 md:h-72 h-80">
                             
                             <div className="mt-4 mb-4 lg:mt-0 lg:ml-6">
                                 <Link to='/events' className="text-lg font-bold tracking-wide text-indigo-600 uppercase">
@@ -48,7 +48,7 @@ return(
 
 
             <div className="flex flex-wrap overflow-hidden">
-                <div className="flex items-center w-full mt-20 overflow-hidden bg-gray-300 h-72">
+                <div className="flex items-center w-full mt-20 overflow-hidden bg-gray-300 md:h-72 h-80">
                             <div className="mx-5 lg:flex-shrink-0">
                                 <img className="rounded-lg lg:w-64" src="/images/dogcheckin.jpeg" alt="dogcheckin" />
                             </div>
@@ -67,7 +67,7 @@ return(
             </div>
 
             <div className="flex flex-wrap overflow-hidden">
-                <div className="flex items-center justify-end w-full mt-20 overflow-hidden bg-indigo-200 h-72">
+                <div className="flex items-center justify-end w-full mt-20 overflow-hidden bg-indigo-200 md:h-72 h-80">
                             
                             <div className="mt-4 mb-4 lg:mt-0 lg:ml-6">
                                 <Link to='/events' className="text-lg font-bold tracking-wide text-indigo-600 uppercase">
@@ -79,7 +79,7 @@ return(
                             <div className="block mt-2 text-lg leading-tight text-gray-900">
                             This includes all your check in visit needs including pet sitter staying in your home. 
                             </div>
-                            <div className="mt-2 text-sm leading-tight text-gray-500 blocl">
+                            <div className="block mt-2 text-sm leading-tight text-gray-500">
                             * Price for 2 cats. $5 for each additional cat
                             </div> 
                             </div>
@@ -91,7 +91,7 @@ return(
 
 
             <div className="flex flex-wrap overflow-hidden">
-                <div className="flex items-center w-full mt-20 overflow-hidden bg-gray-300 h-72">
+                <div className="flex items-center w-full mt-20 overflow-hidden bg-gray-300 md:h-72 h-80">
                             <div className="mx-5 lg:flex-shrink-0">
                                 <img className="rounded-lg lg:w-64" src="/images/dogsleep.jpeg" alt="dogsleep" />
                             </div>
@@ -104,7 +104,7 @@ return(
                             </div>
                             <div className="block mt-2 text-lg leading-tight text-gray-900">
                             This includes all your check in visit needs with a walk when we arrive and before we leave in the morning included. 
-                            <div className="mt-2 text-sm leading-tight text-gray-500 blocl">
+                            <div className="block mt-2 text-sm leading-tight text-gray-500">
                             * Price for 2 dogs. $5 for each additional dog
                             </div>                            
                             </div>
@@ -113,7 +113,7 @@ return(
             </div>
 
             <div className="flex flex-wrap overflow-hidden">
-                <div className="flex items-center justify-end w-full mt-20 overflow-hidden bg-indigo-200 h-72">
+                <div className="flex items-center justify-end w-full mt-20 overflow-hidden bg-indigo-200 md:h-72 h-80">
                             
                             <div className="mt-4 mb-4 lg:mt-0 lg:ml-6">
                                 <Link to='/events' className="text-lg font-bold tracking-wide text-indigo-600 uppercase">
@@ -131,7 +131,7 @@ return(
                             <div className="block mt-2 text-lg leading-tight text-gray-900">
                             Avoid the stress of having to take your dog or cat to the groomers for a nail trim. Service includes trimming the nails and the use of a Dremel to grind the nails to a smooth finish. 
                             </div>
-                            <div className="mt-2 text-sm leading-tight text-gray-500 blocl">
+                            <div className="block mt-2 text-sm leading-tight text-gray-500">
                             * Dremel is for dog nail trims only
                             </div>  
                             </div>
@@ -142,7 +142,7 @@ return(
             </div>
 
             <div className="flex flex-wrap overflow-hidden">
-                <div className="flex items-center w-full mt-20 mb-20 overflow-hidden bg-gray-300 h-72">
+                <div className="flex items-center w-full mt-20 mb-20 overflow-hidden bg-gray-300 md:h-72 h-80">
                             <div className="mx-5 lg:flex-shrink-0">
                                 <img className="rounded-lg lg:w-64" src="/images/cat.jpeg" alt="cat" />
                             </div>
@@ -166,12 +166,9 @@ return(
                             Setting your alarm                         
                             </div>
                             <div className="block mt-2 leading-tight text-gray-900 text-md">
-                            Double checking gates to ensure they are closed after lawn or pool service                        
-                            </div>
-                            <div className="block mt-2 leading-tight text-gray-900 text-md">
                             Medication administration                       
                             </div>
-                            <div className="mt-2 text-sm leading-tight text-gray-500 blocl">
+                            <div className="block mt-2 text-sm leading-tight text-gray-500">
                             * This is done following your vet's instructions with pets that are easily handled. If your pet is too stressed to have this done at home we recommend you work with your vet.
                             </div>  
                             </div>

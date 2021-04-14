@@ -48,8 +48,9 @@ const Login = (props: LoginProps) => {
                         <label className="text-lg text-indigo-400">Email</label>
                         <input
                             name="email"
+                            type="email"
                             value={values.email}
-                            className="flex flex-col w-full text-indigo-500 rounded shadow"
+                            className="flex flex-col w-full text-indigo-500 border-none rounded shadow"
                             onChange={handleChanges}
                         />
                     </div>
@@ -58,8 +59,9 @@ const Login = (props: LoginProps) => {
                         <label className="text-lg text-indigo-400">Password</label>
                         <input
                             name="password"
+                            type="password"
                             value={values.password}
-                            className="flex flex-col w-full text-indigo-500 rounded shadow"
+                            className="flex flex-col w-full text-indigo-500 border-none rounded shadow"
                             onChange={handleChanges}
                         />
                     </div>

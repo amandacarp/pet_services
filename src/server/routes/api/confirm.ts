@@ -7,7 +7,7 @@ const router = express.Router();
 router.post('/', async (req, res) => {
     try {
         const emailInfo = req.body //store req.body in variable
-        const result = await sendConfirm('carpentieri.a@gmail.com', emailInfo.email, 'New Appointment Scheduled!', 'Somebody scheduled a new pet services appointment! Click  ___ to view!'); //get result from mailgun server
+        const result = await sendConfirm('carpentieri.a@gmail.com', emailInfo.email, 'New Appointment Scheduled!', 'Somebody scheduled a new pet services appointment! Click  https://petservices.herokuapp.com/ to view!'); //get result from mailgun server
         //@ts-ignore
         if (result.id) {
             res.json(result);

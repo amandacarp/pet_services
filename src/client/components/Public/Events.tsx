@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 const Events = (props: EventsProps) => {
 
-    const [events, setEvents] = useState<Event>(null);
+    const [events, setEvents] = useState<Event[]>([]);
 
     useEffect(() => {
         apiService('/api/events')
@@ -22,7 +22,7 @@ const Events = (props: EventsProps) => {
 
             <div className="flex flex-wrap justify-center px-2 mx-auto mt-10 overflow-hidden">
                 <div className="px-5 py-5 m-2 text-center text-gray-800 bg-gray-300 border border-indigo-300 rounded shadow">
-                    {events === null ? <h1>No Appointments</h1> :
+                    {events.length === 0 ? <h1>No Appointments</h1> :
                         <table className="w-1/2 text-xs table-auto md:text-lg lg:w-full">
                             <thead>
                                 <tr>
@@ -32,6 +32,7 @@ const Events = (props: EventsProps) => {
                                     <th className="text-center md:text-xl">Service</th>
                                     <th className="text-center md:text-xl">Date(s)</th>
                                     <th className="text-center md:text-xl">Time</th>
+                                    <th className="text-center md:text-xl">Pet Photo</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -44,6 +45,7 @@ const Events = (props: EventsProps) => {
                                             <td className="text-center border border-indigo-600 md:px-2 md:py-2">{event?.name}</td>
                                             <td className="text-center border border-indigo-600 md:px-2 md:py-2">{moment(event?.start_date).add(10, 'days').calendar()} {event?.end_date === null ? '' : 'to ' + moment(event?.end_date).add(10, 'days').calendar()}</td>
                                             <td className="text-center border border-indigo-600 md:px-2 md:py-2">{event?.time}</td>
+                                            <td className="flex justify-center border border-indigo-600 md:px-2 md:py-2"><img src={event?.pet_photo} style={{ maxHeight: '70px', maxWidth: '70px' }} /></td>
 
                                         </tr>
                                     )

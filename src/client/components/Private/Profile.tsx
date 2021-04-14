@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 const Profile = (props: ProfileProps) => {
 
     const [info, setInfo] = useState<ProfileInfo>(null);
-    const [pets, setPets] = useState<Pet>(null);
+    const [pets, setPets] = useState<Pet[]>([]);
     const [events, setEvents] = useState<ProfileEvents[]>([]);
 
     useEffect(() => {
@@ -33,7 +33,7 @@ const Profile = (props: ProfileProps) => {
                 <div className="w-full overflow-hidden lg:my-8 lg:px-8 lg:w-1/2">
                     <div className="px-5 py-5 mt-5 text-gray-800 bg-gray-300 border border-indigo-300 rounded shadow">
                     <h1 className="text-2xl font-bold text-indigo-300 border border-t-0 border-l-0 border-r-0 border-indigo-300">Your Appointments</h1>
-                    {!events ? <h1>No Appointments</h1> : 
+                    {events.length === 0 ? <h1>No Appointments</h1> : 
                         <table className="w-full mt-3 text-xs md:text-lg">
                             <thead>
                                 <tr>
@@ -71,7 +71,7 @@ const Profile = (props: ProfileProps) => {
                 <div className="w-full overflow-hidden lg:my-8 lg:px-8 lg:w-1/2">
                     <div className="px-5 py-5 mt-5 text-gray-800 bg-gray-300 border border-indigo-300 rounded shadow">
                     <h1 className="text-2xl font-bold text-indigo-300 border border-t-0 border-l-0 border-r-0 border-indigo-300">Your Pets</h1>
-                    {!pets ? <h1>No Pets</h1> : 
+                    {pets.length === 0 ? <h1>No Pets</h1> : 
                         <table className="w-full mt-3 text-xs table-auto md:text-lg">
                             <thead>
                                 <tr>

@@ -23,7 +23,8 @@ export interface Event {
 	start_date?: string,
 	end_date?: string,
 	num_of_comments?: number,
-	name?: Services['name']
+	name?: Services['name'],
+	pet_photo?: Pet['pet_photo']
 
 }
 

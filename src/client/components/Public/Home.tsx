@@ -7,8 +7,8 @@ const Home = (props: HomeProps) => {
 
     return (
         <>
-        <h1 className="flex justify-center mt-8 text-2xl font-bold text-indigo-300 border border-indigo-300">Welcome to Amanda's Pet Sitting Services!</h1>
-            <div className="container px-2 mx-auto mt-8">
+        <h1 className="flex justify-center text-2xl font-bold text-indigo-700 mt-14">Welcome to Amanda's Pet Sitting Services!</h1>
+            <div className="container px-2 mx-auto mt-14">
                 <div className="md:flex">
                     <div className="flex-1 px-5 py-5 m-2 text-center text-gray-700 bg-gray-400 rounded">
                         <div className="lg:flex lg:items-center">

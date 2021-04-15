@@ -12,7 +12,6 @@ export interface MySQLResponse {
 export interface Event {
     map: any;
 	id?: number;
-	title?: string;
 	description?: string;
 	userid?: User['id'];
 	petid?: Pet['id'];
@@ -75,7 +74,6 @@ export interface ProfileInfo {
 
 export interface ProfileEvents {
 	id?: number,
-	title?: string,
 	description?: string,
     name?: Services['name']
 	userid?: number,

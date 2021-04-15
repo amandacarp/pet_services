@@ -19,27 +19,20 @@ const SinglePet = (props: SinglePetProps) => {
 
     return (
         <>
-        <h1 className="flex justify-center mt-5 text-2xl font-bold text-indigo-300 border border-indigo-300">Your Pet</h1>
+        <h1 className="flex justify-center text-2xl font-bold text-indigo-700 mt-14">Your Pet</h1>
 
             <div className="flex flex-wrap justify-center px-2 mx-auto mt-5 overflow-hidden">
                 <div className="px-5 py-5 m-2 text-center text-gray-800 bg-gray-300 rounded">
-                <h1 className="text-2xl font-bold text-indigo-300 border border-t-0 border-l-0 border-r-0 border-indigo-300">{pet?.pet_name}</h1>
 
                     <table className="w-1/2 mt-3 text-xs table-auto md:text-lg lg:w-full">
-                        <thead>
-                            <tr>
-                                <th className="text-center md:text-xl">Name</th>
-                                <th className="text-center md:text-xl">Breed</th>
-                                <th className="text-center md:text-xl">Age</th>
-                            </tr>
-                        </thead>
+                        
                         <tbody>
 
                             <tr key={pet?.id}>
-                                <td className="text-center border border-indigo-600 md:px-2 md:py-2">{pet?.pet_name}</td>
-                                <td className="text-center border border-indigo-600 md:px-2 md:py-2">{pet?.pet_breed}</td>
-                                <td className="text-center border border-indigo-600 md:px-2 md:py-2">{pet?.pet_age}</td>
-                                <td className="text-center md:px-2 md:py-2"><button className="inline-block px-4 py-2 mt-4 text-sm leading-none text-indigo-400 border border-indigo-400 rounded hover:border-transparent hover:text-indigo-500 hover:bg-white md:mt-0"><Link to={`/pet/${pet?.id}/edit`}>Edit</Link></button></td>
+                                <td className="text-center md:px-2 md:py-2">{pet?.pet_name}</td>
+                                <td className="text-center md:px-2 md:py-2">{pet?.pet_breed}</td>
+                                <td className="text-center md:px-2 md:py-2">{pet?.pet_age}</td>
+                                <td className="text-center md:px-2 md:py-2"><button className="inline-block px-4 py-2 mt-4 text-sm leading-none text-gray-200 bg-indigo-500 rounded hover:border-transparent hover:text-indigo-500 hover:bg-white md:mt-0"><Link to={`/pet/${pet?.id}/edit`}>Edit</Link></button></td>
 
                             </tr>
 

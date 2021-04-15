@@ -16,7 +16,6 @@ router.get('/:id?', async (req, res) => {
 });
 
 router.post('/', passport.authenticate('jwt'), async (req: any, res) => {
-    const title = req.body.title
     const description = req.body.description
     const time = req.body.time
     const start_date = req.body.start_date
@@ -25,7 +24,7 @@ router.post('/', passport.authenticate('jwt'), async (req: any, res) => {
     const serviceid = req.body.serviceid
     const userid = req.user.userid
     try {
-        const result = await db.Events.insert(userid, title, description, time, start_date, end_date, petid, serviceid)
+        const result = await db.Events.insert(userid, description, time, start_date, end_date, petid, serviceid)
         res.json(result);
     } catch (error) {
         console.log(error);
@@ -34,7 +33,6 @@ router.post('/', passport.authenticate('jwt'), async (req: any, res) => {
 })
 router.put('/:id', passport.authenticate('jwt'), async (req: any, res) => {
     const id: Event['id'] = Number(req.params.id);
-    const title: Event['title'] = req.body.title;
     const description: Event['description'] = req.body.description;
     const time: Event['time'] = req.body.time;
     const start_date: Event['start_date'] = req.body.start_date;
@@ -43,7 +41,7 @@ router.put('/:id', passport.authenticate('jwt'), async (req: any, res) => {
     const serviceid = req.body.serviceid;
     const userid: User['id'] = req.user.userid; //provide userid on put and delete req to ensure ONLY user who posted can edit and delete
     try {
-        const result = await db.Events.update(title, description, time, start_date, end_date, petid, serviceid, id, userid)
+        const result = await db.Events.update(description, time, start_date, end_date, petid, serviceid, id, userid)
         console.log(`Event ${id} edited`)
         res.json(result)
     } catch (error) {

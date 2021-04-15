@@ -9,7 +9,6 @@ import Swal from 'sweetalert2';
 
 const AddEvent = (props: AddEventProps) => {
 
-    const [title, setTitle] = useState(null);
     const [pets, setPets] = useState(null)
     const [description, setDescription] = useState(null);
     const [start_date, setStartDate] = useState(null);
@@ -39,14 +38,14 @@ const AddEvent = (props: AddEventProps) => {
 
     const postEvent = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        if (!title || !description || !start_date || !time || !serviceid || !petid) {
+        if (!description || !start_date || !time || !serviceid || !petid) {
             Swal.fire({
                 title: 'Error',
                 icon: 'error',
                 text: 'Please fill out all the required fields'
             })
         } else {
-            await apiService(`/api/events`, 'POST', { title, description, start_date, end_date, time, serviceid, petid, })
+            await apiService(`/api/events`, 'POST', {  description, start_date, end_date, time, serviceid, petid, })
             .then(() => (apiService('/api/confirm', "POST", ({ email }))));
             history.push(`/profile`)
         }
@@ -71,16 +70,10 @@ const AddEvent = (props: AddEventProps) => {
 
         <>
 
-            <h1 className="flex justify-center mt-5 text-2xl font-bold text-indigo-300 border border-indigo-300">Schedule Appointment</h1>
+            <h1 className="flex justify-center text-2xl font-bold text-indigo-700 mt-14">Schedule Appointment</h1>
             <div className="flex flex-wrap justify-center mt-8 overflow-hidden">
-                <form className="w-11/12 px-5 py-5 mx-5 my-5 overflow-hidden bg-gray-300 border border-indigo-300 rounded shadow lg:w-1/4">
-                    <div className="mt-5">
-                        <label className="text-lg text-indigo-400">Title</label>
-                        <input
-                            className="flex flex-col w-full text-indigo-500 rounded shadow"
-                            onChange={e => setTitle(e.target.value)}
-                        />
-                    </div>
+                <form className="w-11/12 px-5 py-5 mx-5 my-5 overflow-hidden bg-gray-300 border rounded shadow lg:w-1/4">
+                    
 
                     <div className="mt-5">
                         <label className="text-lg text-indigo-400">Service</label>
@@ -185,7 +178,9 @@ const AddEvent = (props: AddEventProps) => {
                         />
                     </div>
                 
-                    <div className="mt-5 text-center md:px-2 md:py-2"><button onClick={postEvent} className="inline-block px-4 py-2 mt-4 text-sm leading-none text-indigo-400 border border-indigo-400 rounded hover:border-transparent hover:text-indigo-500 hover:bg-white md:mt-0">Schedule</button></div>
+                    <div className="mt-5 text-center md:px-2 md:py-2">
+                        <button onClick={postEvent} className="inline-block px-4 py-2 mt-4 text-sm leading-none text-gray-200 bg-indigo-500 rounded hover:border-transparent hover:text-indigo-500 hover:bg-white md:mt-0">Schedule</button>
+                        </div>
 
                 </form>
             </div>

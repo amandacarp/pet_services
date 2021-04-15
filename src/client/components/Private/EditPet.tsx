@@ -129,9 +129,9 @@ const EditPet = (props: EditPetProps) => {
 
 
 
-<h1 className="flex justify-center mt-5 text-2xl font-bold text-indigo-300 border border-indigo-300">Edit {pet?.pet_name}</h1>
+<h1 className="flex justify-center text-2xl font-bold text-indigo-700 mt-14">Edit {pet?.pet_name}</h1>
         <div className="flex flex-wrap justify-center mt-8 overflow-hidden">
-            <form className="w-11/12 px-5 py-5 mx-5 my-5 overflow-hidden bg-gray-300 border border-indigo-300 rounded shadow lg:w-1/4">
+            <form className="w-11/12 px-5 py-5 mx-5 my-5 overflow-hidden bg-gray-300 border rounded shadow lg:w-1/4">
                 <div className="mt-5">
                     <label className="text-lg text-indigo-400">Edit Pet Name</label>
                     <input
@@ -179,8 +179,8 @@ const EditPet = (props: EditPetProps) => {
 
 
                     <div className="flex flex-wrap justify-between">
-                    <div className="mt-5 md:px-2 md:py-2"><button onClick={editPet} className="px-4 py-2 mt-4 text-sm leading-none text-indigo-400 border border-indigo-400 rounded hover:border-transparent hover:text-indigo-500 hover:bg-white md:mt-0">Save</button></div>
-                    <div className="mt-5 md:px-2 md:py-2"><button onClick={deletePet} className="px-4 py-2 mt-4 text-sm leading-none text-indigo-400 border border-indigo-400 rounded hover:border-transparent hover:text-indigo-500 hover:bg-white md:mt-0">Delete</button></div>
+                    <div className="mt-5 md:px-2 md:py-2"><button onClick={editPet} className="inline-block px-4 py-2 mt-4 text-sm leading-none text-gray-200 bg-indigo-500 rounded hover:border-transparent hover:text-indigo-500 hover:bg-white md:mt-0">Save</button></div>
+                    <div className="mt-5 md:px-2 md:py-2"><button onClick={deletePet} className="inline-block px-4 py-2 mt-4 text-sm leading-none text-gray-200 bg-indigo-500 rounded hover:border-transparent hover:text-indigo-500 hover:bg-white md:mt-0">Delete</button></div>
                     </div>                
                     </div>
             </form>

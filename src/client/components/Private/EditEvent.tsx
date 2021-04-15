@@ -10,7 +10,6 @@ import Swal from 'sweetalert2';
 
 const EditEvent = (props: EditEventProps) => {
 
-    const [title, setTitle] = useState(null);
     const [events, setEvents] = useState(null);
     const [pets, setPets] = useState(null);
     const [description, setDescription] = useState(null);
@@ -45,7 +44,7 @@ const EditEvent = (props: EditEventProps) => {
 
     const editEvent = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        if (!title || !description || !start_date || !time || !serviceid || !petid) {
+        if (!description || !start_date || !time || !serviceid || !petid) {
             Swal.fire({
                 title: 'Error',
                 icon: 'error',
@@ -61,7 +60,7 @@ const EditEvent = (props: EditEventProps) => {
                 confirmButtonText: 'Yes, save it!'
             }).then(async (result) => {
                 if (result.isConfirmed){
-                    return await apiService(`/api/events/${id}`, 'PUT', {title, serviceid, petid, description, start_date, end_date, time})
+                    return await apiService(`/api/events/${id}`, 'PUT', {serviceid, petid, description, start_date, end_date, time})
                     .then(() => {
                         Swal.fire({
                             title: 'Edit Saved!',
@@ -148,17 +147,10 @@ const EditEvent = (props: EditEventProps) => {
 
 
 
-<h1 className="flex justify-center mt-5 text-2xl font-bold text-indigo-300 border border-indigo-300">Edit Appointment</h1>
+<h1 className="flex justify-center text-2xl font-bold text-indigo-700 mt-14">Edit Appointment</h1>
             <div className="flex flex-wrap justify-center mt-8 overflow-hidden">
-                <form className="w-11/12 px-5 py-5 mx-5 my-5 overflow-hidden bg-gray-300 border border-indigo-300 rounded shadow lg:w-1/4">
-                    <div className="mt-5">
-                        <label className="text-lg text-indigo-400">Edit Title</label>
-                        <input
-                            className="flex flex-col w-full text-indigo-500 rounded shadow"
-                            onChange={e => setTitle(e.target.value)}
-                            defaultValue={events?.title}
-                        />
-                    </div>
+                <form className="w-11/12 px-5 py-5 mx-5 my-5 overflow-hidden bg-gray-300 border rounded shadow lg:w-1/4">
+                    
 
                     <div className="mt-5">
                         <label className="text-lg text-indigo-400">Edit Service</label>
@@ -253,8 +245,8 @@ const EditEvent = (props: EditEventProps) => {
                         />
                     </div>
                     <div className="flex flex-wrap justify-between">
-                    <div className="mt-5 md:px-2 md:py-2"><button onClick={editEvent} className="px-4 py-2 mt-4 text-sm leading-none text-indigo-400 border border-indigo-400 rounded hover:border-transparent hover:text-indigo-500 hover:bg-white md:mt-0">Save</button></div>
-                    <div className="mt-5 md:px-2 md:py-2"><button onClick={deleteEvent} className="px-4 py-2 mt-4 text-sm leading-none text-indigo-400 border border-indigo-400 rounded hover:border-transparent hover:text-indigo-500 hover:bg-white md:mt-0">Delete</button></div>
+                    <div className="mt-5 md:px-2 md:py-2"><button onClick={editEvent} className="inline-block px-4 py-2 mt-4 text-sm leading-none text-gray-200 bg-indigo-500 rounded hover:border-transparent hover:text-indigo-500 hover:bg-white md:mt-0">Save</button></div>
+                    <div className="mt-5 md:px-2 md:py-2"><button onClick={deleteEvent} className="inline-block px-4 py-2 mt-4 text-sm leading-none text-gray-200 bg-indigo-500 rounded hover:border-transparent hover:text-indigo-500 hover:bg-white md:mt-0">Delete</button></div>
                     </div>
                 </form>
             </div>

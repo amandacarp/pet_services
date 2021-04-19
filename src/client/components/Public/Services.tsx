@@ -15,7 +15,7 @@ const Services = () => {
                         <img className="w-full h-auto" src="/images/dogandcat.jpg" alt="dogandcat" />
 
                     </div>
-                    <div className="flex-1 text-center text-gray-700">
+                    <div className="flex-1 mt-6 text-center text-gray-700 md:mt-0">
 
                         <Link to='/events' className="text-lg font-bold tracking-wide text-indigo-600 uppercase">
                             Initial Meet & Greet
@@ -31,14 +31,14 @@ const Services = () => {
                 </div>
             </div>
 
-            <div className="p-0">
+            <div className="p-0 mt-16 md:mt-0">
                 <div className="mx-0 md:flex md:items-center">
                     <div className="flex-1 order-first md:order-last">
 
                         <img className="w-full h-auto" src="/images/catcheckin.jpeg" alt="catcheckin" />
 
                     </div>
-                    <div className="flex-1 order-last text-center text-gray-700 md:order-first">
+                    <div className="flex-1 order-last mt-6 text-center text-gray-700 md:mt-0 md:order-first">
 
                         <Link to='/events' className="text-lg font-bold tracking-wide text-indigo-600 uppercase">
                             Cat Check In
@@ -56,14 +56,14 @@ const Services = () => {
                 </div>
             </div>
 
-            <div className="p-0">
+            <div className="p-0 mt-16 md:mt-0">
                 <div className="mx-0 md:flex md:items-center">
                     <div className="flex-1">
 
                         <img className="w-full h-auto" src="/images/dogcheckin.jpg" alt="dogcheckin" />
 
                     </div>
-                    <div className="flex-1 text-center text-gray-700">
+                    <div className="flex-1 mt-6 text-center text-gray-700 md:mt-0">
                         <Link to='/events' className="text-lg font-bold tracking-wide text-indigo-600 uppercase">
                             Dog Check-In & Walk
                              </Link>
@@ -79,14 +79,14 @@ const Services = () => {
                 </div>
             </div>
 
-            <div className="p-0">
+            <div className="p-0 mt-16 md:mt-0">
                 <div className="mx-0 md:flex md:items-center">
                     <div className="flex-1 order-first md:order-last">
 
                         <img className="w-full h-auto" src="/images/catsleep.jpg" alt="catsleep" />
 
                     </div>
-                    <div className="flex-1 order-last text-center text-gray-700 md:order-first">
+                    <div className="flex-1 order-last mt-6 text-center text-gray-700 md:mt-0 md:order-first">
                         <Link to='/events' className="text-lg font-bold tracking-wide text-indigo-600 uppercase">
                             Cat Overnight Stay
                              </Link>
@@ -105,14 +105,14 @@ const Services = () => {
                 </div>
             </div>
 
-            <div className="p-0">
+            <div className="p-0 mt-16 md:mt-0">
                 <div className="mx-0 md:flex md:items-center">
                     <div className="flex-1 ">
 
                         <img className="w-full h-auto" src="/images/dogsleep.jpg" alt="dogsleep" />
 
                     </div>
-                    <div className="flex-1 text-center text-gray-700">
+                    <div className="flex-1 mt-6 text-center text-gray-700 md:mt-0">
                         <Link to='/events' className="text-lg font-bold tracking-wide text-indigo-600 uppercase">
                             Dog Overnight Stay
                              </Link>
@@ -132,14 +132,14 @@ const Services = () => {
                 </div>
             </div>
 
-            <div className="p-0">
+            <div className="p-0 mt-16 md:mt-0">
                 <div className="mx-0 md:flex md:items-center">
                     <div className="flex-1 order-first md:order-last">
 
                         <img className="w-full h-auto" src="/images/nailtrim.jpg" alt="nailtrim" />
 
                     </div>
-                    <div className="flex-1 order-last text-center text-gray-700 md:order-first">
+                    <div className="flex-1 order-last mt-6 text-center text-gray-700 md:mt-0 md:order-first">
                         <Link to='/events' className="text-lg font-bold tracking-wide text-indigo-600 uppercase">
                             Dog or Cat Nail Trim
                              </Link>
@@ -169,14 +169,14 @@ const Services = () => {
             </div>
 
 
-            <div className="p-0 mb-6 md:mb-0">
+            <div className="p-0 mt-16 mb-6 md:mt-0 md:mb-0">
                 <div className="mx-0 md:flex md:items-center">
                     <div className="flex-1">
 
                         <img className="w-full h-auto" src="/images/cat.jpg" alt="cat" />
 
                     </div>
-                    <div className="flex-1 text-center text-gray-700">
+                    <div className="flex-1 mt-6 text-center text-gray-700 md:mt-0">
                         <Link to='/events' className="text-lg font-bold tracking-wide text-indigo-600 uppercase">
                             All Services also include:
                              </Link>

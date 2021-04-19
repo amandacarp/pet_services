@@ -30,7 +30,7 @@ const Home = (props: HomeProps) => {
                     <div className="flex-1 px-5 py-5 m-2 text-center text-gray-700 bg-gray-400 rounded">
                         <div className="lg:flex lg:items-center">
                             <div className="lg:flex-shrink-0">
-                                <img className="rounded-lg lg:w-64" src="/images/nailtrim.jpg" alt="nailtrim" />
+                                <img className="rounded-lg lg:w-64" src="/images/catnailtrim.jpg" alt="catnailtrim" />
                             </div>
                             <div className="mt-4 lg:mt-0 lg:ml-6">
                                 <div className="text-sm font-bold tracking-wide text-indigo-600 uppercase">

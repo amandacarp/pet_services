@@ -26,24 +26,24 @@ const Events = (props: EventsProps) => {
                         <table className="w-1/2 text-xs table-auto md:text-lg lg:w-full">
                             <thead>
                                 <tr>
-                                    <th className="font-extrabold text-center text-indigo-500 md:text-xl">Owner</th>
-                                    <th className="font-extrabold text-center text-indigo-500 md:text-xl">Pet</th>
-                                    <th className="font-extrabold text-center text-indigo-500 md:text-xl">Service</th>
-                                    <th className="font-extrabold text-center text-indigo-500 md:text-xl">Date(s)</th>
-                                    <th className="font-extrabold text-center text-indigo-500 md:text-xl">Time</th>
-                                    <th className="font-extrabold text-center text-indigo-500 md:text-xl">Pet Photo</th>
+                                    <th className="m-6 font-extrabold text-center text-indigo-500 md:text-xl">Owner</th>
+                                    <th className="m-6 font-extrabold text-center text-indigo-500 md:text-xl">Pet</th>
+                                    <th className="m-6 font-extrabold text-center text-indigo-500 md:text-xl">Service</th>
+                                    <th className="m-6 font-extrabold text-center text-indigo-500 md:text-xl">Date(s)</th>
+                                    <th className="m-6 font-extrabold text-center text-indigo-500 md:text-xl">Time</th>
+                                    <th className="m-6 font-extrabold text-center text-indigo-500 md:text-xl">Pet Photo</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {events?.map((event: Event) => {
                                     return (
                                         <tr key={event?.id}>
-                                            <td className="text-center md:px-2 md:py-2">{event?.owner_name}</td>
-                                            <td className="text-center md:px-2 md:py-2">{event?.pet_name}</td>
-                                            <td className="text-center md:px-2 md:py-2">{event?.name}</td>
-                                            <td className="text-center md:px-2 md:py-2">{moment(event?.start_date).add(10, 'days').calendar()} {event?.end_date === null ? '' : 'to ' + moment(event?.end_date).add(10, 'days').calendar()}</td>
-                                            <td className="text-center md:px-2 md:py-2">{event?.time}</td>
-                                            <td className="flex justify-center md:px-2 md:py-2"><img src={event?.pet_photo} style={{ maxHeight: '70px', maxWidth: '70px' }} /></td>
+                                            <td className="ml-6 mr-6 text-center md:px-2 md:py-2">{event?.owner_name}</td>
+                                            <td className="ml-6 mr-6 text-center md:px-2 md:py-2">{event?.pet_name}</td>
+                                            <td className="ml-6 mr-6 text-center md:px-2 md:py-2">{event?.name}</td>
+                                            <td className="ml-6 mr-6 text-center md:px-2 md:py-2">{moment(event?.start_date).add(10, 'days').calendar()} {event?.end_date === null ? '' : 'to ' + moment(event?.end_date).add(10, 'days').calendar()}</td>
+                                            <td className="ml-6 mr-6 text-center md:px-2 md:py-2">{event?.time}</td>
+                                            <td className="flex justify-center ml-6 mr-6 md:px-2 md:py-2"><img src={event?.pet_photo} style={{ maxHeight: '70px', maxWidth: '70px' }} /></td>
 
                                         </tr>
                                     )

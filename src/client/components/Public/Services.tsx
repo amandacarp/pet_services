@@ -8,8 +8,8 @@ const Services = () => {
             <h1 className="flex justify-center text-2xl font-bold text-indigo-700 mt-14">Services</h1>
 
 
-            <div className="p-0 mt-14">
-                <div className="mx-0 md:flex">
+            <div className="p-0 mt-20">
+                <div className="mx-0 md:flex md:items-center">
                     <div className="flex-1">
 
                         <img className="w-full h-auto" src="/images/dogandcat.jpeg" alt="dogandcat" />
@@ -32,7 +32,7 @@ const Services = () => {
             </div>
 
             <div className="p-0">
-                <div className="mx-0 md:flex">
+                <div className="mx-0 md:flex md:items-center">
                     <div className="flex-1 order-first md:order-last">
 
                         <img className="w-full h-auto" src="/images/catcheckin.jpeg" alt="catcheckin" />
@@ -57,7 +57,7 @@ const Services = () => {
             </div>
 
             <div className="p-0">
-                <div className="mx-0 md:flex">
+                <div className="mx-0 md:flex md:items-center">
                     <div className="flex-1">
 
                         <img className="w-full h-auto" src="/images/dogcheckin.jpeg" alt="dogcheckin" />
@@ -80,7 +80,7 @@ const Services = () => {
             </div>
 
             <div className="p-0">
-                <div className="mx-0 md:flex">
+                <div className="mx-0 md:flex md:items-center">
                     <div className="flex-1 order-first md:order-last">
 
                         <img className="w-full h-auto" src="/images/catsleep.jpeg" alt="catsleep" />
@@ -106,7 +106,7 @@ const Services = () => {
             </div>
 
             <div className="p-0">
-                <div className="mx-0 md:flex">
+                <div className="mx-0 md:flex md:items-center">
                     <div className="flex-1 ">
 
                         <img className="w-full h-auto" src="/images/dogsleep.jpeg" alt="dogsleep" />
@@ -133,7 +133,7 @@ const Services = () => {
             </div>
 
             <div className="p-0">
-                <div className="mx-0 md:flex">
+                <div className="mx-0 md:flex md:items-center">
                     <div className="flex-1 order-first md:order-last">
 
                         <img className="w-full h-auto" src="/images/nailtrim.jpeg" alt="nailtrim" />
@@ -170,7 +170,7 @@ const Services = () => {
 
 
             <div className="p-0 mb-6 md:mb-0">
-                <div className="mx-0 md:flex">
+                <div className="mx-0 md:flex md:items-center">
                     <div className="flex-1">
 
                         <img className="w-full h-auto" src="/images/cat.jpeg" alt="cat" />

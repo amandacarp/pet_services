@@ -143,10 +143,7 @@ const Services = () => {
                         <Link to='/events' className="text-lg font-bold tracking-wide text-indigo-600 uppercase">
                             Dog or Cat Nail Trim
                              </Link>
-                        <div className="block mt-2 text-xl leading-tight text-indigo-900">
-                            $65.00 for a 12 hour visit
-
-                            </div>
+                       
                         <div className="block mt-2 text-xl leading-tight text-indigo-900">
                             $25.00 for 1 pet
                             </div>

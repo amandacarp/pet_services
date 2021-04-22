@@ -84,7 +84,7 @@ const Register = (props: RegisterProps) => {
 
                     <div className="mt-5 text-center md:px-2 md:py-2">
                         <button onClick={handleRegister} className="inline-block px-4 py-2 mt-4 text-sm leading-none text-gray-200 bg-indigo-500 rounded hover:border-transparent hover:text-indigo-500 hover:bg-white md:mt-0">Register</button>
-                        </div>
+                    </div>
 
                 </form>
             </div>

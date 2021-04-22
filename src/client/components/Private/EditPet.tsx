@@ -3,7 +3,7 @@ import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import apiService, {TOKEN_KEY} from '../../utils/api-service';
+import apiService, { TOKEN_KEY } from '../../utils/api-service';
 
 
 
@@ -45,7 +45,7 @@ const EditPet = (props: EditPetProps) => {
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Yes, save it!'
             }).then(async (result) => {
-                if (result.isConfirmed){
+                if (result.isConfirmed) {
                     const newImage = new FormData();
                     newImage.append('pet_photo', uploadFile);
                     newImage.append('pet_name', pet_name);
@@ -66,38 +66,38 @@ const EditPet = (props: EditPetProps) => {
                         icon: 'success'
                     })
                     history.push(`/profile`)
-                } else if(result.dismiss === Swal.DismissReason.cancel) {
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
                     Swal.fire(
                         'Cancelled',
                         'Edit not saved',
                         'error'
                     )
                 }
-            }) 
-            .catch(err => {
-                Swal.fire({
-                    title: `Error: Pet not edited`,
-                    icon: 'error',
-                    text: err,
-                })
-                console.log(err)
             })
+                .catch(err => {
+                    Swal.fire({
+                        title: `Error: Pet not edited`,
+                        icon: 'error',
+                        text: err,
+                    })
+                    console.log(err)
+                })
         }
     }
 
     const deletePet = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-            Swal.fire({
-                title: `Delete this pet?`,
-                icon: 'warning',
-                text: 'Warning! Any events scheduled for this pet must be deleted first!',
-                showCancelButton: true,
-                confirmButtonColor: '#362f78',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
-            }).then(async (result) => {
-                if (result.isConfirmed){
-                    return await apiService(`/api/pets/${id}`, 'DELETE')
+        Swal.fire({
+            title: `Delete this pet?`,
+            icon: 'warning',
+            text: 'Warning! Any events scheduled for this pet must be deleted first!',
+            showCancelButton: true,
+            confirmButtonColor: '#362f78',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                return await apiService(`/api/pets/${id}`, 'DELETE')
                     .then(() => {
                         Swal.fire({
                             title: 'Pet Deleted!',
@@ -105,14 +105,14 @@ const EditPet = (props: EditPetProps) => {
                             icon: 'success',
                         })
                     })
-                } else if(result.dismiss === Swal.DismissReason.cancel) {
-                    Swal.fire(
-                        'Cancelled',
-                        'Pet not Deleted',
-                        'error'
-                    )
-                }
-            }).then(() => {history.push('/profile')})
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                Swal.fire(
+                    'Cancelled',
+                    'Pet not Deleted',
+                    'error'
+                )
+            }
+        }).then(() => { history.push('/profile') })
             .catch(err => {
                 Swal.fire({
                     title: `Error: Pet not deleted`,
@@ -122,14 +122,14 @@ const EditPet = (props: EditPetProps) => {
                 })
                 console.log(err)
             })
-        
+
     }
 
     return (<>
 
 
 
-<h1 className="flex justify-center text-2xl font-bold text-indigo-700 mt-14">Edit {pet?.pet_name}</h1>
+        <h1 className="flex justify-center text-2xl font-bold text-indigo-700 mt-14">Edit {pet?.pet_name}</h1>
         <div className="flex flex-wrap justify-center mt-8 overflow-hidden">
             <form className="w-11/12 px-5 py-5 mx-5 my-5 overflow-hidden bg-gray-300 border rounded shadow lg:w-1/4">
                 <div className="mt-5">
@@ -161,7 +161,7 @@ const EditPet = (props: EditPetProps) => {
 
                 <div className="mt-5">
                     <label className="text-lg text-indigo-400">Edit Pet Photo</label>
-                    
+
 
                     <div className="w-full bg-grey-lighter">
                         <label className="flex flex-col items-center px-4 py-6 tracking-wide uppercase bg-white border rounded-lg shadow-lg cursor-pointer text-blue border-blue hover:bg-blue hover:text-indigo-400">
@@ -169,7 +169,7 @@ const EditPet = (props: EditPetProps) => {
                                 <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
                             </svg>
                             <span className="mt-2 text-base leading-normal">Select a file</span>
-                            <input type='file' className="hidden" onChange={handleFileChange}/>
+                            <input type='file' className="hidden" onChange={handleFileChange} />
                         </label>
                     </div>
 
@@ -179,14 +179,14 @@ const EditPet = (props: EditPetProps) => {
 
 
                     <div className="flex flex-wrap justify-between">
-                    <div className="mt-5 md:px-2 md:py-2"><button onClick={editPet} className="inline-block px-4 py-2 mt-4 text-sm leading-none text-gray-200 bg-indigo-500 rounded hover:border-transparent hover:text-indigo-500 hover:bg-white md:mt-0">Save</button></div>
-                    <div className="mt-5 md:px-2 md:py-2"><button onClick={deletePet} className="inline-block px-4 py-2 mt-4 text-sm leading-none text-gray-200 bg-indigo-500 rounded hover:border-transparent hover:text-indigo-500 hover:bg-white md:mt-0">Delete</button></div>
-                    </div>                
+                        <div className="mt-5 md:px-2 md:py-2"><button onClick={editPet} className="inline-block px-4 py-2 mt-4 text-sm leading-none text-gray-200 bg-indigo-500 rounded hover:border-transparent hover:text-indigo-500 hover:bg-white md:mt-0">Save</button></div>
+                        <div className="mt-5 md:px-2 md:py-2"><button onClick={deletePet} className="inline-block px-4 py-2 mt-4 text-sm leading-none text-gray-200 bg-indigo-500 rounded hover:border-transparent hover:text-indigo-500 hover:bg-white md:mt-0">Delete</button></div>
                     </div>
+                </div>
             </form>
         </div>
 
-        
+
     </>);
 }
 

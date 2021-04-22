@@ -45,8 +45,8 @@ const AddEvent = (props: AddEventProps) => {
                 text: 'Please fill out all the required fields'
             })
         } else {
-            await apiService(`/api/events`, 'POST', {  description, start_date, end_date, time, serviceid, petid, })
-            .then(() => (apiService('/api/confirm', "POST", ({ email }))));
+            await apiService(`/api/events`, 'POST', { description, start_date, end_date, time, serviceid, petid, })
+                .then(() => (apiService('/api/confirm', "POST", ({ email }))));
             history.push(`/profile`)
         }
 
@@ -73,7 +73,7 @@ const AddEvent = (props: AddEventProps) => {
             <h1 className="flex justify-center text-2xl font-bold text-indigo-700 mt-14">Schedule Appointment</h1>
             <div className="flex flex-wrap justify-center mt-8 overflow-hidden">
                 <form className="w-11/12 px-5 py-5 mx-5 my-5 overflow-hidden bg-gray-300 border rounded shadow lg:w-1/4">
-                    
+
 
                     <div className="mt-5">
                         <label className="text-lg text-indigo-400">Service</label>
@@ -117,29 +117,29 @@ const AddEvent = (props: AddEventProps) => {
                                 <div className="w-full overflow-hidden lg:my-3 lg:px-3">
                                     <label className="text-lg text-indigo-400">Start Date</label>
                                     <div className="flex justify-center">
-                                    {start_date === null ? <Calendar
-                                        //@ts-ignore
-                                        onChange={startChange}
-                                        value={start_date}
-                                        // onClickDay={(value) => console.log(value)}
-                                        calendarType={"US"}
-                                        // tileDisabled= {}
-                                        className="border rounded shadow border-dark"
-                                    /> : <Calendar className="blur" />}
+                                        {start_date === null ? <Calendar
+                                            //@ts-ignore
+                                            onChange={startChange}
+                                            value={start_date}
+                                            // onClickDay={(value) => console.log(value)}
+                                            calendarType={"US"}
+                                            // tileDisabled= {}
+                                            className="border rounded shadow border-dark"
+                                        /> : <Calendar className="blur" />}
                                     </div>
                                 </div>
                                 <div className="w-full mt-3 overflow-hidden lg:my-3 lg:px-3">
                                     <label className="text-lg text-indigo-400">End Date</label>
                                     <div className="flex justify-center">
-                                    <Calendar
-                                        //@ts-ignore
-                                        onChange={endChange}
-                                        value={end_date}
-                                        // onClickDay={(value) => console.log(value)}
-                                        calendarType={"US"}
-                                        // tileDisabled= {({date, view }) => (view === 'month') && date.getDay() === 0}
-                                        className="border rounded shadow border-dark"
-                                    />
+                                        <Calendar
+                                            //@ts-ignore
+                                            onChange={endChange}
+                                            value={end_date}
+                                            // onClickDay={(value) => console.log(value)}
+                                            calendarType={"US"}
+                                            // tileDisabled= {({date, view }) => (view === 'month') && date.getDay() === 0}
+                                            className="border rounded shadow border-dark"
+                                        />
                                     </div>
                                 </div>
                             </div>
@@ -177,10 +177,10 @@ const AddEvent = (props: AddEventProps) => {
                             className="w-full text-indigo-500 border-none rounded shadow"
                         />
                     </div>
-                
+
                     <div className="mt-5 text-center md:px-2 md:py-2">
                         <button onClick={postEvent} className="inline-block px-4 py-2 mt-4 text-sm leading-none text-gray-200 bg-indigo-500 rounded hover:border-transparent hover:text-indigo-500 hover:bg-white md:mt-0">Schedule</button>
-                        </div>
+                    </div>
 
                 </form>
             </div>

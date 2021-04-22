@@ -20,7 +20,7 @@ const SingleEvent = (props: SingleEventProps) => {
 
     return (
         <>
-        <h1 className="flex justify-center text-2xl font-bold text-indigo-700 mt-14">Your Appointment</h1>
+            <h1 className="flex justify-center text-2xl font-bold text-indigo-700 mt-14">Your Appointment</h1>
 
             <div className="flex flex-wrap justify-center px-2 mx-auto mt-5 overflow-hidden">
                 <div className="px-5 py-5 m-2 text-center text-gray-800 bg-gray-300 border rounded shadow">

@@ -4,9 +4,9 @@ import { TOKEN_KEY } from '../../utils/api-service';
 
 const PrivateRoute = ({ children, ...rest }: PrivateRouteProps) => {
 
-    const token = localStorage.getItem(TOKEN_KEY) 
-    if (token) { 
-        return ( 
+    const token = localStorage.getItem(TOKEN_KEY)
+    if (token) {
+        return (
             <Route {...rest}>
                 {children}
             </Route>

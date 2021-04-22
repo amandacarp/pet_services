@@ -10,24 +10,24 @@ const Contact = (props: RegisterProps) => {
 
     const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        if(!email ||  !subject || !body) {
+        if (!email || !subject || !body) {
             Swal.fire({
                 title: `Error`,
                 icon: 'error',
                 text: 'Please fill out all the required fields',
             })
         } else {
-        await apiService('/api/contact', "POST", ({ email, subject, content: body }));
-        setEmail('');
-        setSubject('');
-        setBody('');
-        Swal.fire({
-            title: 'Sent!',
-            text: `Your Email has been sent!`,
-            icon: 'success',
-        })
+            await apiService('/api/contact', "POST", ({ email, subject, content: body }));
+            setEmail('');
+            setSubject('');
+            setBody('');
+            Swal.fire({
+                title: 'Sent!',
+                text: `Your Email has been sent!`,
+                icon: 'success',
+            })
+        }
     }
-}
 
 
 
@@ -68,12 +68,12 @@ const Contact = (props: RegisterProps) => {
                         />
                     </div>
 
-                    
+
 
 
                     <div className="mt-5 text-center md:px-2 md:py-2">
                         <button onClick={handleSubmit} className="inline-block px-4 py-2 mt-4 text-sm leading-none text-gray-200 bg-indigo-500 rounded hover:border-transparent hover:text-indigo-500 hover:bg-white md:mt-0">Send Email</button>
-                        </div>
+                    </div>
 
                 </form>
             </div>

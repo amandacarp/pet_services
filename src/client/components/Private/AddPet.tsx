@@ -86,7 +86,7 @@ const AddPet = (props: AddPetProps) => {
 
                 <div className="mt-5">
                     <label className="text-lg text-indigo-400">Pet Photo</label>
-                    
+
 
                     <div className="w-full bg-grey-lighter">
                         <label className="flex flex-col items-center px-4 py-6 tracking-wide uppercase bg-white border rounded-lg shadow-lg cursor-pointer text-blue border-blue hover:bg-blue hover:text-indigo-400">
@@ -94,7 +94,7 @@ const AddPet = (props: AddPetProps) => {
                                 <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
                             </svg>
                             <span className="mt-2 text-base leading-normal">Select a file</span>
-                            <input type='file' className="hidden" onChange={handleFileChange}/>
+                            <input type='file' className="hidden" onChange={handleFileChange} />
                         </label>
                     </div>
 
@@ -104,12 +104,12 @@ const AddPet = (props: AddPetProps) => {
 
 
                     <div className="mt-5 text-center md:px-2 md:py-2">
-                        <button onClick={addPet} className="inline-block px-4 py-2 mt-4 text-sm leading-none text-gray-200 bg-indigo-500 rounded hover:border-transparent hover:text-indigo-500 hover:bg-white md:mt-0">Add Pet</button> 
-                        </div>
+                        <button onClick={addPet} className="inline-block px-4 py-2 mt-4 text-sm leading-none text-gray-200 bg-indigo-500 rounded hover:border-transparent hover:text-indigo-500 hover:bg-white md:mt-0">Add Pet</button>
+                    </div>
                 </div>
             </form>
         </div>
-        
+
     </>);
 }
 

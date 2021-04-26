@@ -40,7 +40,7 @@ const Profile = (props: ProfileProps) => {
                 </div>
             <div className='flex items-center justify-around'>
                 <div className='flex flex-col text-center'>
-                <h1 className="text-2xl font-bold text-indigo-700 mt-14">Welcome,</h1>
+                <h1 className="text-2xl font-bold text-indigo-700">Welcome,</h1>
                 <h1 className="text-2xl font-bold text-indigo-700">{info?.owner_name}</h1>
                 </div>
                 <div className="flex justify-end">

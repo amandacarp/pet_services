@@ -1,44 +1,10 @@
 import * as React from 'react';
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 
 const Home = (props: HomeProps) => {
 
-    const [cats, setCats] = useState([]);
-    const [dogs, setDogs] = useState(null);
 
-    useEffect(() => {
-        fetch('https://api.thecatapi.com/v1/images/search')
-            .then(res => res.json())
-            .then(cats => setCats(cats))
-            .catch(e => console.log(e));
-        fetch('https://dog.ceo/api/breeds/image/random')
-            .then(res => res.json())
-            .then(dogs => setDogs(dogs))
-            .catch(e => console.log(e));
-    }, [])
-
-    // useEffect(() => {
-    //     fetch('https://dog.ceo/api/breeds/image/random')
-    //     .then(res => res.json())
-    //     .then(dogs => setDogs(dogs))
-    //     .catch(e => console.log(e));
-    //  }, [])
-
-    const newCat = () => {
-        fetch('https://api.thecatapi.com/v1/images/search')
-            .then(res => res.json())
-            .then(cats => setCats(cats))
-            .catch(e => console.log(e));
-    }
-
-    const newDog = () => {
-        fetch('https://dog.ceo/api/breeds/image/random')
-            .then(res => res.json())
-            .then(dogs => setDogs(dogs))
-            .catch(e => console.log(e));
-    }
 
     return (
         <div className="home">
@@ -91,30 +57,7 @@ const Home = (props: HomeProps) => {
                 </div>
             </div>
 
-            <div className="justify-around mb-20 md:flex">
-                {cats?.map(cat => {
-                    return (
-                        <div key={cat?.id}>
-                            <div className="mt-14">
-                                <img className='rounded-lg max-w-80 max-h-96' src={cat?.url} alt="cat" />
-                            </div>
-                            <div className='flex justify-center mt-6'>
-                                <button onClick={newCat} className="inline-block px-4 py-2 text-sm leading-none text-gray-200 bg-indigo-500 rounded hover:border-transparent hover:text-indigo-500 hover:bg-white md:mt-0">New Kitty!</button>
-                            </div>
-                        </div>
-                    )
-                })}
-
-
-                <div key={dogs?.message}>
-                    <div className="mt-14">
-                        <img className='rounded-lg max-w-80 max-h-96' src={dogs?.message} alt="dog" />
-                    </div>
-                    <div className='flex justify-center mt-6'>
-                        <button onClick={newDog} className="inline-block px-4 py-2 text-sm leading-none text-gray-200 bg-indigo-500 rounded hover:border-transparent hover:text-indigo-500 hover:bg-white md:mt-0">New Puppy!</button>
-                    </div>
-                </div>
-            </div>
+            
 
         </div>
     );

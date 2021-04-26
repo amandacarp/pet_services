@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import apiService from '../../utils/api-service';
 
@@ -7,6 +7,14 @@ const Contact = (props: RegisterProps) => {
     const [email, setEmail] = useState('');
     const [subject, setSubject] = useState('')
     const [body, setBody] = useState('')
+    const [dogs, setDogs] = useState(null);
+
+    useEffect(() => {
+        fetch('https://dog.ceo/api/breeds/image/random')
+            .then(res => res.json())
+            .then(dogs => setDogs(dogs))
+            .catch(e => console.log(e));
+    }, [])
 
     const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
@@ -23,6 +31,7 @@ const Contact = (props: RegisterProps) => {
             setBody('');
             Swal.fire({
                 title: 'Sent!',
+                imageUrl: `${dogs.message}`,
                 text: `Your Email has been sent!`,
                 icon: 'success',
             })
@@ -77,7 +86,6 @@ const Contact = (props: RegisterProps) => {
 
                 </form>
             </div>
-
 
 
         </>

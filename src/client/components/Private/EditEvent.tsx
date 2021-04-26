@@ -21,7 +21,15 @@ const EditEvent = (props: EditEventProps) => {
     const [petid, setSelectedPets] = useState(null);
     const history = useHistory();
     const [isRange, setIsRange] = useState(false);
-    const { id } = useParams<{ id: string }>();
+    const { id } = useParams<{ id: string }>();    
+    const [dogs, setDogs] = useState(null);
+
+    useEffect(() => {
+        fetch('https://dog.ceo/api/breeds/image/random')
+            .then(res => res.json())
+            .then(dogs => setDogs(dogs))
+            .catch(e => console.log(e));
+    }, [])
 
 
     useEffect(() => {
@@ -65,6 +73,7 @@ const EditEvent = (props: EditEventProps) => {
                             Swal.fire({
                                 title: 'Edit Saved!',
                                 text: `Your event has been edited.`,
+                                imageUrl: `${dogs.message}`,
                                 icon: 'success',
                             })
                         })
@@ -105,6 +114,7 @@ const EditEvent = (props: EditEventProps) => {
                         Swal.fire({
                             title: 'Event Deleted!',
                             text: `Your event has been deleted.`,
+                            imageUrl: `${dogs.message}`,
                             icon: 'success',
                         })
                     })

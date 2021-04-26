@@ -9,7 +9,20 @@ const Profile = (props: ProfileProps) => {
 
     const [info, setInfo] = useState<ProfileInfo>(null);
     const [pets, setPets] = useState<Pet[]>([]);
-    const [events, setEvents] = useState<ProfileEvents[]>([]);
+    const [events, setEvents] = useState<ProfileEvents[]>([]);    
+    const [cats, setCats] = useState([]);
+    const [dogs, setDogs] = useState(null);
+
+    useEffect(() => {
+        fetch('https://api.thecatapi.com/v1/images/search')
+            .then(res => res.json())
+            .then(cats => setCats(cats))
+            .catch(e => console.log(e));
+        fetch('https://dog.ceo/api/breeds/image/random')
+            .then(res => res.json())
+            .then(dogs => setDogs(dogs))
+            .catch(e => console.log(e));
+    }, [])
 
     useEffect(() => {
         apiService('/api/users/profile')
@@ -22,14 +35,28 @@ const Profile = (props: ProfileProps) => {
 
     return (
         <>
-
-            <section >
-                <h1 className="flex justify-start text-2xl font-bold text-indigo-700 mt-14">Welcome, {info?.owner_name}</h1>
-                <div className="mt-5 md:px-2 md:py-2">
+            <div className="flex justify-end mt-5 md:px-2 md:py-2">
                     <button onClick={logout} className="inline-block px-4 py-2 mt-4 text-sm leading-none text-gray-200 bg-indigo-500 rounded hover:border-transparent hover:text-indigo-500 hover:bg-white md:mt-0">Logout</button>
                 </div>
+            <div className='flex items-center justify-around'>
+                <div className='flex flex-col text-center'>
+                <h1 className="text-2xl font-bold text-indigo-700 mt-14">Welcome,</h1>
+                <h1 className="text-2xl font-bold text-indigo-700">{info?.owner_name}</h1>
+                </div>
+                <div className="flex justify-end">
+                {cats?.map(cat => {
+                    return (
+                        <div key={cat?.id}>
+                            <div className="mr-4 mt-14">
+                                <img className='rounded-lg max-w-48 max-h-56' src={cat?.url} alt="cat" />
+                            </div>
+                           
+                        </div>
+                    )
+                })}
+                </div>
+            </div>
 
-            </section>
 
             <div className="flex flex-wrap justify-center px-2 mx-auto mt-5 mb-8 overflow-hidden">
                 <div className="w-full overflow-hidden lg:my-8 lg:px-8 lg:w-1/2">

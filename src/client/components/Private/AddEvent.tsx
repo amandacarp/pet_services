@@ -20,7 +20,7 @@ const AddEvent = (props: AddEventProps) => {
     const [isRange, setIsRange] = useState(false);
     const [singleEvent, setSingleEvent] = useState(false);
     const history = useHistory();
-    const [email, setEmail] = useState('');
+    const [email, setEmail] = useState('');    
 
 
     useEffect(() => {

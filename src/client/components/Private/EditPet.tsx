@@ -16,6 +16,14 @@ const EditPet = (props: EditPetProps) => {
     const history = useHistory();
     const { id } = useParams<{ id: string }>();
     const [uploadFile, setUploadFile] = useState<File>(null);
+    const [dogs, setDogs] = useState(null);
+
+    useEffect(() => {
+        fetch('https://dog.ceo/api/breeds/image/random')
+            .then(res => res.json())
+            .then(dogs => setDogs(dogs))
+            .catch(e => console.log(e));
+    }, [])
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setUploadFile(e.target.files[0])
@@ -63,6 +71,7 @@ const EditPet = (props: EditPetProps) => {
                     Swal.fire({
                         title: 'Edit Saved!',
                         text: 'Your Pet has been edited',
+                        imageUrl: `${dogs.message}`,
                         icon: 'success'
                     })
                     history.push(`/profile`)
@@ -102,6 +111,7 @@ const EditPet = (props: EditPetProps) => {
                         Swal.fire({
                             title: 'Pet Deleted!',
                             text: `Your pet has been deleted.`,
+                            imageUrl: `${dogs.message}`,
                             icon: 'success',
                         })
                     })
